@@ -1,0 +1,18 @@
+#!/bin/bash
+
+continuar="S"
+while [ $continuar=="S" ]
+do
+   echo "Digite a opção"0
+read opcao nome antigo
+
+case $opcao in
+"--cria") touch $nome;;
+"--remove") rm $nome;;
+"--renomeia") mv $antigo $nome;;
+"*") echo "Opcao invalida"
+esac
+echo $continuar
+echo "Deseja continuar?"
+read continuar
+done
