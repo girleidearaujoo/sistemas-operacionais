@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# le um número n, que vai ser o tamanho da sequência
+
+echo "Digite a operação: 1 para sequencia de fibonacci, 2 para fatorial, 3 para acertar o número" 
+read op
+echo "Digite um número N"
+read n
+
+
+if [ $op -eq 1 ]
+then
+	i=1
+	anterior=0
+	proximo=$(($i+$anterior))
+
+	for k in $(seq 1 $n)
+	do
+		echo $i
+		anterior=$i
+		i=$proximo
+		proximo=$(($anterior+$i))
+	done
+elif [ $op -eq 2 ]
+then
+	count=$((n-1))
+	while [ $n -le 1 ]
+	do
+		count=$(($n*$count))
+		n=$(($n-1))
+	done
+	echo $count
+else
+	ans=$(($RANDOM % 50))
+	echo $ans
+fi
